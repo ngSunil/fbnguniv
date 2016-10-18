@@ -5,9 +5,11 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2/index';
 import { AppComponent } from './app.component';
 import { firebaseConfig } from '../environments/firebase.config';
+import { FirebaseComponent } from './firebase/firebase.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,
