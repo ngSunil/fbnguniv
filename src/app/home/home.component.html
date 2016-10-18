@@ -1,13 +1,13 @@
 <div class="container">
     <h2 class="center-align">All Lessons</h2>
-    <h4 class="center-align">Total Lessons: {{lessons?.length}}</h4>
+    <h4 class="center-align">Total Lessons: {{allLessons?.length}}</h4>
     <div class="row">
-        <div class="input-field col s12">
-            <input id="search" type="text" class="validate">
-            <label for="search">Search</label>
+        <div class="input-field col s12 card">
+            <input id="search" placeholder="Search" type="text" #input (keyup)="search(input.value)">
         </div>
     </div>
     <div class="card-panel hoverable">
-        <lessons-list [lessons]="lessons"></lessons-list>
+        <lessons-list [lessons]="filteredLessons"></lessons-list>
     </div>
+
 </div>

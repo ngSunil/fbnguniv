@@ -7,13 +7,17 @@ import { Lesson } from '../shared/model/lesson';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  lessons: Lesson[];
+  allLessons: Lesson[];
+  filteredLessons: Lesson[];
   constructor(private lessonsService: LessonsService) { }
-  
+
   ngOnInit() {
     this.lessonsService.findallLessons()
         .do(console.log)
-        .subscribe(lessons=> this.lessons=lessons);
+        .subscribe(lessons=> this.allLessons=this.filteredLessons=lessons);
   }
 
+  search(search:string){
+    this.filteredLessons=this.allLessons.filter(lesson=>lesson.description.includes(search));
+  }
 }
