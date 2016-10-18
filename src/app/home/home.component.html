@@ -1,0 +1,23 @@
+<div class="container">
+    <h2 class="center-align">All Lessons</h2>
+    <h4 class="center-align">Total Lessons: {{lessons?.length}}</h4>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="search" type="text" class="validate">
+            <label for="search">Search</label>
+        </div>
+    </div>
+    <div class="card-panel hoverable">
+        <table class="highlight bordered">
+            <tbody>
+                <tr *ngFor="let lesson of lessons">
+                    <td>{{lesson.description}}</td>
+                    <td>
+                        <i class="tiny material-icons" style="font-size: 20px">query_builder</i>
+                        <span>{{lesson.duration}}</span>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
