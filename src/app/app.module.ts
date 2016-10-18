@@ -10,11 +10,13 @@ import { firebaseConfig } from '../environments/firebase.config';
 import { FirebaseComponent } from './firebase/firebase.component';
 import { HomeComponent } from './home/home.component';
 import { LessonsService } from './shared/model/lessons.service';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     FirebaseComponent,
-    HomeComponent
+    HomeComponent,
+    LessonsListComponent
   ],
   imports: [
     BrowserModule,

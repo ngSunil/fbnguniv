@@ -8,16 +8,6 @@
         </div>
     </div>
     <div class="card-panel hoverable">
-        <table class="highlight bordered">
-            <tbody>
-                <tr *ngFor="let lesson of lessons">
-                    <td>{{lesson.description}}</td>
-                    <td>
-                        <i class="tiny material-icons" style="font-size: 20px">query_builder</i>
-                        <span>{{lesson.duration}}</span>
-                </tr>
-
-            </tbody>
-        </table>
+        <lessons-list [lessons]="lessons"></lessons-list>
     </div>
 </div>
