@@ -1,0 +1,32 @@
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+</ul>
+<nav>
+    <div class="nav-wrapper blue">
+        <a href="#!" class="brand-logo"><i class="material-icons">cloud</i> Angular 2 Course</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li routerLinkActive="active"><a routerLink="home">HOME</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li routerLinkActive="active"><a routerLink="courses">COURSES</a></li>
+            <li><a href="collapsible.html">LOGIN</a></li>
+            <li><a href="mobile.html">REGISTER</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a routerLink="home">HOME</a></li>
+            <li><a routerLink="courses">COURSES</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+        </ul>
+    </div>
+</nav>

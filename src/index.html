@@ -1,36 +1,45 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>NgFbApp</title>
-  <!--Import Google Icon Font-->
-  <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"  media="screen,projection"/>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+    <meta charset="utf-8">
+    <title>NgFbApp</title>
+    <!--Import Google Icon Font-->
+    <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection" />
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-  <app-root>Loading...</app-root>
-  <!--<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>-->
-  <script>
-    // Initialize Firebase
-    // var config = {
-    //   apiKey: "AIzaSyATNsOiksAFNpb16uVl0rph04kftHh792c",
-    //   authDomain: "brilliant-heat-7043.firebaseapp.com",
-    //   databaseURL: "https://brilliant-heat-7043.firebaseio.com",
-    //   storageBucket: "brilliant-heat-7043.appspot.com",
-    //   messagingSenderId: "115520029876"
-    // };
-    // firebase.initializeApp(config);
-    // var root=firebase.database().ref('messages/2/');
-    // root.on('value', function(snap){
-    // console.log(snap.key, snap.val());
-    // })
-  </script>
-  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-  <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+    <app-root>Loading...</app-root>
+    <!--<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>-->
+    <script>
+        // Initialize Firebase
+        // var config = {
+        //   apiKey: "AIzaSyATNsOiksAFNpb16uVl0rph04kftHh792c",
+        //   authDomain: "brilliant-heat-7043.firebaseapp.com",
+        //   databaseURL: "https://brilliant-heat-7043.firebaseio.com",
+        //   storageBucket: "brilliant-heat-7043.appspot.com",
+        //   messagingSenderId: "115520029876"
+        // };
+        // firebase.initializeApp(config);
+        // var root=firebase.database().ref('messages/2/');
+        // root.on('value', function(snap){
+        // console.log(snap.key, snap.val());
+        // })
+    </script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".button-collapse").sideNav();
+            $(".dropdown-button").dropdown();
+        })
+    </script>
 </body>
+
 </html>
