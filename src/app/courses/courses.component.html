@@ -7,9 +7,9 @@
     <div class="card center-align">
         <table class="centered">
             <tbody>
-                <tr>
+                <tr *ngFor="let course of (courses$ | async)">
                     <td><img src="../../assets/images/angular.svg" alt="Angular Image" height="40px"></td>
-                    <td>TODO</td>
+                    <td>{{course.description}}</td>
                     <td><button class="btn">VIEW</button></td>
                 </tr>
             </tbody>
