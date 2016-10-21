@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import { Observable } from 'rxjs';
 import { AngularFireModule } from 'angularfire2/index';
 import { AppComponent } from './app.component';
 import { firebaseConfig } from '../environments/firebase.config';
@@ -16,6 +17,7 @@ import { routerConfig } from './router.config';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoursesService } from './shared/model/courses.service';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { CoursesService } from './shared/model/courses.service';
     HomeComponent,
     LessonsListComponent,
     TopMenuComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
