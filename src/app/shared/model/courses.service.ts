@@ -22,9 +22,8 @@ export class CoursesService {
   }
   findLessonsforCourse(courseUrl: string): Observable<Lesson[]>{
     const course$ = this.findCourseByUrl(courseUrl);
-    const lessonsPerCourse$ = course$.switchMap(course => this.db.list("lessonsPerCourse/"+course.$key))
-                                .do(console.log);
-    lessonsPerCourse$.subscribe();
-    return Observable.of([]);
+    const lessonsPerCourse$ = course$.switchMap(course => this.db.list(`lessonsPerCourse/${course.$key}`));
+    return lessonsPerCourse$.map(lspc=>lspc.map(lpc => this.db.object("lessons/"+lpc.$key)))
+                            .flatMap(fbojs => Observable.combineLatest(fbojs));
   }
 }
