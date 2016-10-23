@@ -20,10 +20,18 @@ export class CoursesService {
       }
     }).map(results => results[0]);
   }
+  findLessonKeysPerCourseUrl(courseUrl: string): Observable<Lesson[]>{
+    return this.findCourseByUrl(courseUrl)
+                .switchMap(course => this.db.list(`lessonsPerCourse/${course.$key}`))
+                .map(lspc => lspc.map(lpc => lpc.$key));
+  }
   findLessonsforCourse(courseUrl: string): Observable<Lesson[]>{
-    const course$ = this.findCourseByUrl(courseUrl);
-    const lessonsPerCourse$ = course$.switchMap(course => this.db.list(`lessonsPerCourse/${course.$key}`));
-    return lessonsPerCourse$.map(lspc=>lspc.map(lpc => this.db.object("lessons/"+lpc.$key)))
-                            .flatMap(fbojs => Observable.combineLatest(fbojs));
+    return this.findLessonKeysPerCourseUrl(courseUrl)
+            .map(lspc=>lspc.map(lessonKey => this.db.object("lessons/"+lessonKey)))
+            .flatMap(fbojs => Observable.combineLatest(fbojs));
+  }
+  loadFirstLessonsPage(courseUrl:string):Observable<Lesson[]>{
+
+    return Observable.of([]);
   }
 }

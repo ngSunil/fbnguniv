@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-        <h5 class="center-align">TOTO</h5>
+        <h5 class="center-align">{{(course$ | async)?.description}}</h5>
         <p class="center-align">
 
             <button class="btn waves-effect waves-light">Previous Page
@@ -12,5 +12,5 @@
 
         </p>
     </div>
-    <lessons-list></lessons-list>
+    <lessons-list [lessons]="lessons$ | async"></lessons-list>
 </div>
