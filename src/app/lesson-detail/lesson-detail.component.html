@@ -1,3 +1,19 @@
-<p>
-  lesson-detail works!
-</p>
+<div class="container">
+    <div>
+        <p class="center-align">
+            <button class="btn waves-effect waves-light" (click)="previous()">Previous Page
+                <i class="material-icons left">skip_previous</i>
+            </button>
+            <button class="btn waves-effect waves-light" (click)="next()">Next Page
+                <i class="material-icons right">skip_next</i>
+            </button>
+        </p>
+    </div>
+    <h2>{{ lesson?.description}}</h2>
+    <h3>{{ lesson?.duration }}</h3>
+    <p>{{ lesson?.longDescription }}</p>
+    <p class="center-align">
+        <button class="btn waves-effect waves-light">Edit Lesson</button>
+        <button class="btn waves-effect waves-light">Delete Lesson</button>
+    </p>
+</div>
