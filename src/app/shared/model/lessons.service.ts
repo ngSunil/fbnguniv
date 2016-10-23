@@ -20,4 +20,28 @@ export class LessonsService {
     })
       .map(results => Lesson.fromJson(results[0]));
   }
+  loadNextLesson(courseId: string, lessonId: string): Observable<Lesson>{
+    return this.af.database.list(`lessonsPerCourse/${courseId}`, {
+      query:{
+        orderByKey: true,
+        startAt: lessonId,
+        limitToFirst: 2
+      }
+    })
+    .map(results => results[1].$key)
+    .switchMap(lessonId => this.af.database.object(`lessons/${lessonId}`))
+    .map(Lesson.fromJson)
+  }
+  loadPreviousLesson(courseId: string, lessonId: string){
+      return this.af.database.list(`lessonsPerCourse/${courseId}`, {
+      query:{
+        orderByKey: true,
+        endAt: lessonId,
+        limitToLast: 2
+      }
+    })
+    .map(results => results[0].$key)
+    .switchMap(lessonId => this.af.database.object(`lessons/${lessonId}`))
+    .map(Lesson.fromJson)
+  }
 }
