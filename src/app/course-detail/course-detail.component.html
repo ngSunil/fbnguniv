@@ -12,5 +12,5 @@
 
         </p>
     </div>
-    <lessons-list [lessons]="lessons"></lessons-list>
+    <lessons-list [lessons]="lessons" (lesson)="navigateToLesson($event)"></lessons-list>
 </div>

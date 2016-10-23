@@ -1,6 +1,6 @@
 <table class="highlight bordered">
     <tbody>
-        <tr *ngFor="let lesson of lessons">
+        <tr *ngFor="let lesson of lessons" (click)="selectLesson(lesson)">
             <td>{{lesson.description}}</td>
             <td>
                 <i class="tiny material-icons" style="font-size: 20px">query_builder</i>
