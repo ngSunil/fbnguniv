@@ -27,4 +27,8 @@ export class CourseDetailComponent implements OnInit {
     this.coursesService.loadNextPage(this.courseUrl, this.lessons[this.lessons.length-1].$key, 3)
             .subscribe(lessons => this.lessons=lessons);
   }
+  previous(){
+    this.coursesService.loadPreviousPage(this.courseUrl, this.lessons[0].$key, 3)
+            .subscribe(lessons => this.lessons=lessons);
+  }
 }

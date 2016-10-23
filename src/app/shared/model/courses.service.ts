@@ -41,14 +41,25 @@ export class CoursesService {
     return this.findLessonsForLessonKeys(firstPageLessonKeys$);
   }
   loadNextPage(courseUrl:string, lessonKey: string, pageSize: number): Observable<Lesson[]>{
-    const nextPageLessonKeys$ = this.findLessonKeysPerCourseUrl(courseUrl, {
+    const LessonKeys$ = this.findLessonKeysPerCourseUrl(courseUrl, {
       query:{
         orderByKey: true,
         startAt: lessonKey,
         limitToFirst: pageSize+1
       }
     });
-    return this.findLessonsForLessonKeys(nextPageLessonKeys$)
+    return this.findLessonsForLessonKeys(LessonKeys$)
               .map(lessons => lessons.slice(1, lessons.length));
+  }
+  loadPreviousPage(courseUrl:string, lessonKey: string, pageSize: number): Observable<Lesson[]>{
+    const LessonKeys$ = this.findLessonKeysPerCourseUrl(courseUrl, {
+      query:{
+        orderByKey: true,
+        startAt: lessonKey,
+        limitToLast: pageSize+1
+      }
+    });
+    return this.findLessonsForLessonKeys(LessonKeys$)
+              .map(lessons => lessons.slice(0, lessons.length-1));
   }
 }
