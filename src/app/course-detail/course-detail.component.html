@@ -3,14 +3,14 @@
         <h5 class="center-align">{{(course$ | async)?.description}}</h5>
         <p class="center-align">
 
-            <button class="btn waves-effect waves-light">Previous Page
+            <button class="btn waves-effect waves-light" (click)="previous()">Previous Page
                 <i class="material-icons left">skip_previous</i>
             </button>
-            <button class="btn waves-effect waves-light">Next Page
+            <button class="btn waves-effect waves-light" (click)="next()">Next Page
                 <i class="material-icons right">skip_next</i>
             </button>
 
         </p>
     </div>
-    <lessons-list [lessons]="lessons$ | async"></lessons-list>
+    <lessons-list [lessons]="lessons"></lessons-list>
 </div>

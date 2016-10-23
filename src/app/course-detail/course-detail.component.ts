@@ -10,15 +10,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./course-detail.component.css']
 })
 export class CourseDetailComponent implements OnInit {
+  courseUrl: string;
   course$: Observable<Course>;
-  lessons$: Observable<Lesson[]>;
+  lessons: Lesson[];
   constructor(private route: ActivatedRoute ,private coursesService: CoursesService) { }
 
   ngOnInit() {
-    const courseUrl= this.route.snapshot.params['id'];
-    this.course$ = this.coursesService.findCourseByUrl(courseUrl);
-    this.lessons$ = this.coursesService.loadFirstLessonsPage(courseUrl, 3);
+    this.courseUrl= this.route.snapshot.params['id'];
+    this.course$ = this.coursesService.findCourseByUrl(this.courseUrl);
+    const lessons$ = this.coursesService.loadFirstLessonsPage(this.courseUrl, 3);
+    lessons$.subscribe(lessons => this.lessons=lessons);
     // this.lessons$ = this.coursesService.findLessonsforCourse(courseUrl);
     // this.lessons$.do(console.log).subscribe();
+  }
+  next(){
+    this.coursesService.loadNextPage(this.courseUrl, this.lessons[this.lessons.length-1].$key, 3)
+            .subscribe(lessons => this.lessons=lessons);
   }
 }
