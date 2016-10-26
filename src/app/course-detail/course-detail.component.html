@@ -13,4 +13,5 @@
         </p>
     </div>
     <lessons-list [lessons]="lessons" (lesson)="navigateToLesson($event)"></lessons-list>
+    <button routerLink="new" [queryParams]="{courseId: (course$ | async)?.$key}">New Lesson</button>
 </div>

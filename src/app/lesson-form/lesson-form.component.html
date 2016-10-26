@@ -1,0 +1,18 @@
+<div class="container">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="text" placeholder="Description" formControlName="description">
+                <div *ngIf="iserrorVisible('description', 'required')">Field is mandatory</div>
+                <input type="text" placeholder="Lesson Url" formControlName="url">
+                <div>Field is mandatory</div>
+                <input type="text" placeholder="Video Url" formControlName="videoUrl">
+                <div>Field is mandatory</div>
+                <!--<div>Not a valid url</div>-->
+                <input type="text" placeholder="Tags" formControlName="tags">
+                <div>Field is mandatory</div>
+                <textarea type="text" placeholder="Long Description" formControlName="longDescription"></textarea>
+            </div>
+        </div>
+    </form>
+</div>

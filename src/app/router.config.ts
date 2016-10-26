@@ -1,3 +1,5 @@
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import { Lesson } from './shared/model/lesson';
 import { Route } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -8,10 +10,10 @@ export const routerConfig: Route[]=[
        path:'home', component: HomeComponent
    } ,
    {
-       path:'courses', 
+       path:'courses',
        children:[
-           {path: ':id', component: CourseDetailComponent},
-           {path: '', component: CoursesComponent}
+           {path:'', component: CourseDetailComponent},
+           {path:'new', component: NewLessonComponent}
        ]
    },
    {
